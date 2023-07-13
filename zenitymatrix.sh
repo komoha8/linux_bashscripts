@@ -3,7 +3,13 @@
 #capturing the user name
 name=$(zenity --entry --title "Hi" --text "Please enter your name below:") 
 
-#Displaying information on screen
+if [[ $name == "" ]]   # checking name is empty
+	then 
+	zenity --info --text "Forgot to enter the name? No worries..window open again so please enter"
+	name=$(zenity --entry --title "Hi" --text "Please enter your name below		:")	
+fi # end of name is empty if block
+
+#Displaying  on screen in  information box
 zenity --info --text "Hello $name, Welcome to the Gaming World!"
 
 sleep 1
@@ -14,12 +20,11 @@ answer=$(zenity --question --text="$name , Would you like to play an interesting
 
 if [[ $? == 0 ]] # means entered yes
 then
-
-sleep 2|tee >(zenity --progress --pulsate --no-cancel --auto-close --text="Downloading the game ...Please wait...")
+	sleep 2|tee >(zenity --progress --pulsate --no-cancel --auto-close --te		xt="Down loading the game ...Please wait...")
 
  	sleep 2
 	echo " "
-	echo "$name,Game is Ready....This Game is all about CHOOSING THE RIGHT PILL..."
+	echo "$name,Game is Ready....This Game is all about CHOOSING THE RIGHT 	PILL..."
 	sleep 2
 	echo -e "If you choose the \e[34mBLUE Pill \e[0m .."
 	sleep 2
@@ -63,12 +68,11 @@ EOF
 
 		sleep 2
 		echo " "
-		choice=$(zenity --list --radiolist --text "Please choose the pill: " --hide-header --column "select" --column "pill color" FALSE "Blue pill" FALSE "Red pill")
-	
+		choice=$(zenity --list --radiolist --text "Please choose the pi	ll: " --hide-header --column "select" --column "pill color" FALSE "Blue pill" FALSE "Red pill")
 		if [[ "$choice" == "Red pill" ]]
 	 	then
 			sleep 1
-			echo -e "You chose the \e[31mRED Pill \e[0m...Good Choice ..."
+			echo -e "You chose the \e[31mRED Pill \e[0m...Good Choi	ce ..."
 			sleep 3
 			echo ."Are you ready?"
 			sleep 3
@@ -119,7 +123,7 @@ EOF
 else 
 
 	$(zenity --info --text "Oh no! Not interested? Okay...No problem...Good Bye!")
-fi
+fi # end  of if user wants to play game
 
 #end of the program
 
