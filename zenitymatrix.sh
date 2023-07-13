@@ -6,7 +6,7 @@ name=$(zenity --entry --title "Hi" --text "Please enter your name below:")
 if [[ $name == "" ]]   # checking name is empty
 	then 
 	zenity --info --text "Forgot to enter the name? No worries..window open again so please enter"
-	name=$(zenity --entry --title "Hi" --text "Please enter your name below		:")	
+	name=$(zenity --entry --title "Hi" --text "Please enter your name below:")	
 fi # end of name is empty if block
 
 #Displaying  on screen in  information box
@@ -20,7 +20,7 @@ answer=$(zenity --question --text="$name , Would you like to play an interesting
 
 if [[ $? == 0 ]] # means entered yes
 then
-	sleep 2|tee >(zenity --progress --pulsate --no-cancel --auto-close --te		xt="Down loading the game ...Please wait...")
+	sleep 2|tee >(zenity --progress --pulsate --no-cancel --auto-close --text="Down loading the game ...Please wait...")
 
  	sleep 2
 	echo " "
@@ -72,7 +72,7 @@ EOF
 		if [[ "$choice" == "Red pill" ]]
 	 	then
 			sleep 1
-			echo -e "You chose the \e[31mRED Pill \e[0m...Good Choi	ce ..."
+			echo -e "You chose the \e[31mRED Pill \e[0m...Good Choice ..."
 			sleep 3
 			echo ."Are you ready?"
 			sleep 3
