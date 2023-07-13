@@ -68,7 +68,7 @@ EOF
 
 		sleep 2
 		echo " "
-		choice=$(zenity --list --radiolist --text "Please choose the pi	ll: " --hide-header --column "select" --column "pill color" FALSE "Blue pill" FALSE "Red pill")
+		choice=$(zenity --list --radiolist --text "Please choose the pill: " --hide-header --column "select" --column "pill color" FALSE "Blue pill" FALSE "Red pill")
 		if [[ "$choice" == "Red pill" ]]
 	 	then
 			sleep 1
@@ -83,6 +83,7 @@ EOF
 			echo -e " ...Welcome ..to ..the world ..of .. \e[36mMatrix \e[0m !"
 			sleep 3
 			cmatrix
+
 		elif [[ "$choice" == "Blue pill" ]]
 		then
 			sleep 1
@@ -119,7 +120,7 @@ EOF
 		echo " ....back to learning bash scripting for you!"
 		else
 			 $(zenity --error --text "Invalid choice . You are a sheep in a Lions den.")
-		fi
+		fi# end of choice if clause
 else 
 
 	$(zenity --info --text "Oh no! Not interested? Okay...No problem...Good Bye!")
