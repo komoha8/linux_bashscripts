@@ -1,43 +1,47 @@
 #!/bin/bash
 
-
+#capturing the user name
 name=$(zenity --entry --title "Hi" --text "Please enter your name below:") 
 
+#Displaying information on screen
 zenity --info --text "Hello $name, Welcome to the Gaming World!"
 
 sleep 1
 
+#Yes/No question
+answer=$(zenity --question --text="$name , Would you like to play an interesting game?" --width=300)
 
-answer=$(zenity --question --text="Would you like to play an interesting game?")
 
 if [[ $? == 0 ]] # means entered yes
 then
+
 sleep 2|tee >(zenity --progress --pulsate --no-cancel --auto-close --text="Downloading the game ...Please wait...")
 
- 		echo " "
-		echo "Game is Ready....This Game is all about CHOOSING THE RIGHT PILL..."
-		sleep 1
-		echo "If you choose the BLUE PILL .."
-		sleep 2
-		echo "The story ends "
-		sleep 1
-		echo "and you wake up in the bed .."
-		sleep 1
-		echo "and believe whatever you want to beleive."
-		sleep 2
-		echo "If you choose the RED PILL...."
-		sleep 2
-		echo "you stay in the Wonderland."
-		sleep 1
-		echo "and I show you how deep that rabbit hole goes.."
-		sleep 1
-		echo .
-		sleep 1
-		echo ..
-		sleep 1
-		echo ...
-		sleep 2
-		echo " Pills are here below... your turn choose one .."
+ 	sleep 2
+	echo " "
+	echo "$name,Game is Ready....This Game is all about CHOOSING THE RIGHT PILL..."
+	sleep 2
+	echo -e "If you choose the \e[34mBLUE Pill \e[0m .."
+	sleep 2
+	echo "The story ends.. "
+	sleep 3
+	echo "and you will have a surprise awakening ..."
+	sleep 3
+	echo "and believe whatever you want to beleive."
+	sleep 3
+	echo -e "If you choose the \e[31mRED Pill \e[0m...."
+	sleep 3
+	echo "you stay in the Wonderland."
+	sleep 3
+	echo "and I show you how deep that rabbit hole goes.."
+	sleep 3
+	echo .
+	sleep 1
+	echo ..
+	sleep 1
+	echo ...
+	sleep 3
+	echo " Pills are here below... your turn choose one .."
 
 cat <<"EOF"
 
@@ -50,44 +54,43 @@ cat <<"EOF"
  ':::'__   _____ _______   /    /
      / /\ /        |:::::\ \   /
      \/_/ \BLUE    |:::::/  `"`
-jgs     __ `"""""""""""""`
+        __ `"""""""""""""`
        /\ \
        \_\/
 
 EOF
 
 
-		sleep 1
+		sleep 2
 		echo " "
 		choice=$(zenity --list --radiolist --text "Please choose the pill: " --hide-header --column "select" --column "pill color" FALSE "Blue pill" FALSE "Red pill")
 	
 		if [[ "$choice" == "Red pill" ]]
 	 	then
 			sleep 1
-			echo "You chose the Red pill ...Good Choice ..."
-			sleep 1
-			echo .1
-			sleep 1
-			echo ..2
-			sleep 1
-			echo ...3
-			sleep 1
-			echo ....4
-			echo " ...Welcome ..to ..the world ..of .. Matrix !"
-			sleep 1
+			echo -e "You chose the \e[31mRED Pill \e[0m...Good Choice ..."
+			sleep 3
+			echo ."Are you ready?"
+			sleep 3
+			echo .."Your world is about to change!"
+			sleep 3
+			echo ..."Come along with me to wonderland.... "
+			sleep 3
+			echo -e " ...Welcome ..to ..the world ..of .. \e[36mMatrix \e[0m !"
+			sleep 3
 			cmatrix
 		elif [[ "$choice" == "Blue pill" ]]
 		then
 			sleep 1
-			echo "You choose the Blue pill...the story ends..you wakeup in the bed.."
-
+			echo -e "You chose the \e[34mBLUE Pill \e[0m...the story ends..you wokeup in class as NOSA...."
+			sleep 2
 cat <<"EOF"
                       _______  ______
                      /    -   \/   -   \
                     / /  _   \| /_   \  \
                    /        _\ |         \
-      Sweat       /  /       \ /|    \  \ \
-                 /   /  /   | |/      )\   \
+You had a         /  /       \ /|    \  \ \
+BAD DREAM!!!     /   /  /   | |/      )\   \
                 //     ( /   \ |/_  \      \)
                 (  /    (  __ |_/_ __)      ()
                /) // /(  ) ) )/  \) (\(\ \   (
@@ -102,20 +105,20 @@ cat <<"EOF"
    _________.---.-- \   ))            u / --.---._________
   / u       |   |    \  (    \_/    u  /    |   |         \
  /    u     |   |     \     _ _ _     /   u |   |     u    \
-jjs         |   | u   |\   / --- \   /|     |   |         u
+            |   | u   |\   / --- \   /|     |   |         u
             |   |     | \  ' ___ '  / |     |   |
                 |        u    -    /        |
                           '-.___.-'   u
 EOF
 
 
-		echo " ....back to learning bash scripting for you"
+		echo " ....back to learning bash scripting for you!"
 		else
 			 $(zenity --error --text "Invalid choice . You are a sheep in a Lions den.")
 		fi
 else 
 
-	$(zenity --info --text "Oh no! not interested? Okay...No problem...Good Bye!")
+	$(zenity --info --text "Oh no! Not interested? Okay...No problem...Good Bye!")
 fi
 
 #end of the program
