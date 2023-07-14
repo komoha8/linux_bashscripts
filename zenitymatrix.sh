@@ -1,26 +1,36 @@
+<<coments
+Project Name: Matrix bash script
+Developed By : Niaz, Sreedevi,Juan, Victoria
+Summary : This script is play Matrix game by choosing a pill. If choose  Red pill story ends there / If you choose Blue pill you see the Matrix wonderland.
+Version : 1.0
+coments
+
+
 #!/bin/bash
 
-#capturing the user name
+# capturing the user name
 name=$(zenity --entry --title "Hi" --text "Please enter your name below:") 
+
 
 if [[ $name == "" ]]   # checking name is empty
 	then 
-	zenity --info --text "Forgot to enter the name? No worries..window open again so please enter"
-	name=$(zenity --entry --title "Hi" --text "Please enter your name below:")	
+	name="GAMER" # setting default name
 fi # end of name is empty if block
 
-#Displaying  on screen in  information box
+
+# Displaying  on screen in  information box
 zenity --info --text "Hello $name, Welcome to the Gaming World!"
 
 sleep 1
 
-#Yes/No question
-answer=$(zenity --question --text="$name , Would you like to play an interesting game?" --width=300)
+# User wants to play game ? Yes/No question
+$(zenity --question --text="$name , Would you like to play an interesting game?" --width=300)
 
 
-if [[ $? == 0 ]] # means entered yes
+if [[ $? == 0 ]] # checking execution of zenity question 0 menas user choose yes
 then
-	sleep 2|tee >(zenity --progress --pulsate --no-cancel --auto-close --text="Down loading the game ...Please wait...")
+	# displaying progress dialog
+	sleep 3|tee >(zenity --progress --pulsate --no-cancel --auto-close --text="Down loading the game ...Please wait...")
 
  	sleep 2
 	echo " "
@@ -68,6 +78,8 @@ EOF
 
 		sleep 2
 		echo " "
+		
+		# Diaplay radio button list to choose red or blue pill
 		choice=$(zenity --list --radiolist --text "Please choose the pill: " --hide-header --column "select" --column "pill color" FALSE "Blue pill" FALSE "Red pill")
 		if [[ "$choice" == "Red pill" ]]
 	 	then
