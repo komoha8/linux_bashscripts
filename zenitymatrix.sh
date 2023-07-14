@@ -24,7 +24,7 @@ then
 
  	sleep 2
 	echo " "
-	echo "$name,Game is Ready....This Game is all about CHOOSING THE RIGHT 	PILL..."
+	echo "$name, Game is Ready....This Game is all about CHOOSING THE RIGHT PILL..."
 	sleep 2
 	echo -e "If you choose the \e[34mBLUE Pill \e[0m .."
 	sleep 2
@@ -118,10 +118,10 @@ EOF
 
 
 		echo " ....back to learning bash scripting for you!"
-		else
-			 $(zenity --error --text "Invalid choice . You are a sheep in a Lions den.")
-		fi# end of choice if clause
-else 
+		else 
+		 $(zenity --error --text "Invalid choice . You are a sheep in a Lions den.")
+		fi # end of choice if clause
+else  
 
 	$(zenity --info --text "Oh no! Not interested? Okay...No problem...Good Bye!")
 fi # end  of if user wants to play game
